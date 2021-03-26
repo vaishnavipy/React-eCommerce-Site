@@ -1,38 +1,619 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+
+
+.container{
+   
+    max-width: 1150px;
+    width: 90%;
+    margin: auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/*----NAVBAR----*/
+.nav-outer{
+  
+    width: 100vw;
+    z-index:1;
+  
+   
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    font-size: 1.4rem;
+    padding: 0 0.5em;
+    height: 100px;
+    
+}
+img{
+    padding: 0;
+    margin: 0;
+   justify-self:center;
+
+}
+.nav-links span{
+    text-decoration: none;
+ padding-right:1em;  
+ transition: color 0.5s;
+ cursor: pointer;
+ font-weight: 500;
+}
+.nav-links span:hover{
+    color:#BA5D2C;
+}
+.cart{
+    padding: 0.8em ;
+    cursor: pointer;
+    position: relative;
+    
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.links{
+    text-decoration: none;
+   
+}
+.cart-no{
+    position: absolute;
+  
+    background-color:#BA5D2C ;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.3em;
+    top:0;
+    right:0;
+}
+.hamburger-menu{
+    display: none;
+    cursor: pointer;
+    transition: color 1s;
+}
+.hamburger-menu:hover{
+   
+  color: #112A43 ;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@media (max-width:800px){
+    .nav-links{
+        display: none;
+    }
+    .hamburger-menu{
+        
+        background-color:#BA5D2C ;
+        padding: 0.3em 0.5em;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+    }
+}   
+
+/*----HOME----*/
+.home{
+    height: auto;
+   
+  
 }
 
-.App-link {
-  color: #61dafb;
+.home-screen{
+    width: 100vw;
+    height: 100vh;
+    background-image: url("https://vanilla-js-store.netlify.app/images/main-bcg.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    color:white;
+    justify-content: center;
+  
+}
+.home-screen::after{
+    content: "";
+    position: absolute;
+    background: rgba(0,0,0,0.4) ;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+}
+.home-screen .container{
+    z-index: 1;
+}
+.home-screen h1{
+  
+    font-family: 'Kaushan Script', cursive;
+    font-size: 5rem;
+    padding: 0;
+    margin: 0;
+    
+}
+.home-screen p{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 3rem;
+    padding: 0.5em 0;
+    margin: 0;
+    
+}
+.home-screen button{
+    color: white;
+    background: transparent ;
+    border : 1px solid white;
+    transition: background-color 0.8s,color 0.8s;
+  
+}
+.home-screen button:hover{
+    background-color: white;
+    color:#BA5D2C;
+}
+button{
+    cursor: pointer;
+    border:none;
+    outline:none; 
+    font-size: 1.0rem;
+    padding: 0.4em;
+    border-radius: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/*----HOME - FEATURED GRID----*/
+.featured{
+  
+
+    padding: 2em 0;
+    color:#112A43;
+    text-align: center;
+    position: relative;
+    z-index: 1;
 }
+.section-title{
+    color:#112A43;
+    font-size: 2.5rem;
+}
+
+.section-title span{    
+    color:#BA5D2C ;
+
+} 
+.featured button, .singleproduct-grid button, .sidebar button{
+    background-color: #BA5D2C;
+    font-size: 1.3rem;
+    padding: 0.5em;
+    color: white;
+    transition: color 0.5s;
+   
+}
+.featured-grid{
+  
+    padding: 0.5em 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+    gap:20px;
+}
+
+.featured button:hover, .singleproduct-grid button:hover,.sidebar button:hover{
+   
+    color:#112A43;
+
+}
+@media (max-width:770px){
+    .featured-grid{
+        grid-template-columns: 1fr;
+    }
+}
+
+/*----SIDE BAR----*/
+
+.blur::after{
+    
+    content: "";
+    position: absolute;
+    background: rgba(0,0,0,0.5) ;
+    width: 100%;
+    height: 100%;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+
+}
+.sidebar h1{
+    font-family: 'Kaushan Script', cursive;
+    font-weight: 500;
+    padding: 0.5em 0;
+    margin: 0;
+ }
+
+.sidebar{
+   display: grid;
+   grid-template-rows: auto auto 1fr auto ;
+    text-align: center;
+    position: fixed;
+    z-index: 3;
+    height: 100%;
+    width: 400px;
+    top:0;
+    right:0;
+    background-color: #F1F5F8;
+    color:#112A43;
+    overflow: scroll;
+    transition: transform 1s;
+}
+.show-sidebar{
+    transform: translateX(0%);
+}
+.hide-sidebar{
+    transform: translateX(100%);
+}
+.close-sidebar{
+    text-align: left;
+    color:#617D98;
+    font-weight: 900;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    font-size: 1.7rem;
+
+}
+.cart-items{
+    width: 100%;
+    height: 100px;
+    padding:0.5em;
+    display: grid;
+    grid-template-columns: 28% 48% 18%;
+    gap:15px;
+
+}
+.cart-items h4,.cart-items p{
+    text-align: left;
+    padding:0;
+    padding-bottom: 0.5em;
+    margin: 0;
+}
+.cart-items h4{
+    font-weight:600;
+    text-transform: capitalize;
+}
+.remove{
+    cursor: pointer;
+    color:#617D98;
+}
+.increase,.decrease{
+   font-size: 1.2rem;
+   cursor: pointer;
+  
+}
+.decrease{
+  
+}
+
+.cart-img{
+    width: 100%;
+    height: 70px;
+    border-radius: 5px;
+}
+.cart-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    
+}
+
+
+.total-checkout{
+   
+    width: 100%;
+    height: auto;
+    margin: 0.5em 0;
+   
+
+   
+}
+/*----BREADCRUMB----*/
+.breadcrumb{
+   
+    background-color: #F1F5F8;
+    width: 100vw;
+
+}
+.breadcrumb h1{padding: 0;
+margin: 0; 
+    color:#617D98;
+    font-weight: 600;
+    padding: 1.5em 0; 
+    text-transform: capitalize;   
+}
+
+
+/*----ABOUT----*/
+.about-content{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.about-content p{
+    max-width: 700px;
+    width:80%;
+    line-height: 1.8;
+    color:#728BA3;
+    font-weight: 500;
+}
+/*----PRODUCTS----*/
+
+.products{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+.company-filter{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.border{
+    
+    border:1px solid blue;
+    border-radius: 5px;
+}
+.products-content{
+   
+  
+    width: 100vw;
+}
+.products-grid{
+  
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap:40px;
+    padding: 4em 0;
+}
+
+
+
+.filters p{
+   cursor: pointer;
+   color:#617D98;
+}
+input[type="range"]{
+    padding: 0;
+    margin: 0;
+}
+.filters h3{
+  margin: 0.5em 0;
+  color:#112A43;
+}
+input[type="text"]{
+    background-color: #F1F5F8;
+    padding: 0.5em;
+    outline: none;
+    border: none;
+    font-weight: 400;
+}
+
+.allproducts-container{
+  
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+    gap:20px;
+
+}
+.allproducts-container div{
+  
+    border-radius: 10px;
+    text-align: center;
+} 
+
+@media (max-width:770px){
+    .products-grid{
+        grid-template-columns: 1fr;
+    }
+    .allproducts-container{
+        grid-template-columns: 1fr;
+
+    }
+}
+/*----ROOM GRID----*/
+.room-grid{
+    display: grid;
+   
+    grid-template-columns: 100%;
+ 
+}
+
+.room-img{
+      width: 100%;
+      height: 200px;
+   position: relative;
+  
+}
+.room-img img{
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+   
+    object-fit: cover;
+    transition: display 4s,background-color 1s;
+   
+}
+@media (max-width:800px){
+    .room-img{
+        height: 250px;
+    }
+}
+
+.room-name{
+    padding-top: 0.9em ;
+    margin: 0;
+    color:#617D98;
+    text-transform: capitalize;
+    font-weight: 400;
+    
+}
+.room-price{
+    padding: 0.5em;
+    color: #3C566F;
+    margin: 0;
+    font-weight: 700;
+}
+.room-icons{
+    position: absolute; 
+    background-color:#BA5D2C ;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 1.3rem;
+    padding: 0.5em;
+    top:40%;
+   cursor: pointer;
+   display: none;
+    left:50%;
+    transition: display 4s,background-color 1s;
+    color: white;
+}
+.magnify{
+    left:30%;
+    margin:0 1em;
+}
+.room-cart{
+    left:45%;
+    margin:0 1.5em;
+}
+.room-img:hover .room-icons{
+    display: inline;
+  
+}
+.room-icons:hover{
+    background-color: rgba(255, 166, 0, 0.699);
+}
+
+/*----SINGLE PRODUCT----*/
+.singleproduct{
+    height: auto;
+    width:100vw;
+    padding: 3em 0;
+    overflow: hidden;
+}
+.singleproduct-grid{
+  height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:40px;
+    text-align: left;
+}
+.single-img{
+    margin: 0;
+    padding:0;
+    height:370px;
+    overflow: hidden;
+    width: 100%;
+}
+.single-img img{
+   
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+.singleproduct h1,p{
+    padding: 0;
+    margin: 0;
+    padding-bottom: 0.6em;
+}
+.product-title{
+    text-transform: capitalize;
+    color: #112A43;
+    font-weight: 400;
+}
+.product-company{
+    text-transform: uppercase;
+    color: #BCCCDD;
+    font-family: 'Kaushan Script', cursive;
+    font-weight: 700s;
+    font-size: 1.3rem;
+    
+}
+.product-price{
+    color: #112A43;
+    font-weight: 400;
+    font-size: 1.2rem;
+  
+}
+.product-description{
+    color: #617D98;
+    line-height: 1.7;
+    font-weight: 600;
+}
+@media (max-width:800px){
+    .singleproduct-grid{
+        grid-template-columns: 1fr;
+    }
+
+}
+/*----MODAL ----*/
+.modal{
+    position: fixed;
+    top:0;
+    z-index: 3;
+    
+    height: 90vh;
+    width: 80vw;
+    margin: 50px;
+    background-color : #FFFFFF ;
+    border-radius: 20px;
+  
+}
+.showModal{
+    display: block;
+}
+.hideModal{
+    display: none;
+}
+.close-modal{
+    text-align: right;
+    color:#617D98;
+    font-weight: 900;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    font-size: 1.7rem;
+}
+.modal-links{
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 1em;
+}
+ .modal-links .links{ 
+    text-decoration: none;
+    color:#112A43;
+    margin: 0.5em;
+
+}
+.modal-links .links:hover{
+    color:#BA5D2C ;
+ }
+
+
+
+/*----MAKE SURE TO AUTOMATICALLY CLOSE MODAL AND REMOVE BLUR WHEN SCREEN SIZE INCREASES  ----*/
+@media (min-width:800px){
+    .modal{
+        display: none;
+    }
+    
+}
+
+
+
+
+
